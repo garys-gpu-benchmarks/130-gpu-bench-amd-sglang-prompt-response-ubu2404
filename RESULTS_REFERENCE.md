@@ -3,7 +3,7 @@
 **Main goal:** Measure sequential SGLang prompt-response latency  
 **Tools:** Every profile starts sglang.launch_server with Mistral-7B-v0.3, then prompt_response_client.py
 
-Reference results measured by the maintainer on the system shown in each section (generator TEMPLATE_00_140 · recorded 2026-11-13). Your own runs write `results/RESULTS_ACTUAL.md` in the same format.
+Reference results measured by the maintainer on the system shown in each section (generator TEMPLATE_00_141 · recorded 2026-11-14). Your own runs write `results/RESULTS_ACTUAL.md` in the same format.
 
 > Smoke runs use deliberately small sizes. They check that the workload installs and runs end to end; their numbers are not performance results. Baseline and extended are.
 
@@ -11,16 +11,16 @@ Reference results measured by the maintainer on the system shown in each section
 ## smoke
 
 - **System:** 1× AMD Instinct MI300X VF (196288 MB) · INTEL(R) XEON(R) PLATINUM 8568Y+ · Ubuntu 24.04.5 LTS · kernel 6.8.0-147-generic · driver 7.1.9.31600000
-- **Run:** 2026-11-13T21:25:50Z · status **PASS** (exit 0)
-- **Time (mm:ss):** setup 04:52 · benchmark 02:50 · whole run 09:08
-- **Source:** run 130_20261113_212550
+- **Run:** 2026-11-14T11:55:11Z · status **PASS** (exit 0)
+- **Time (mm:ss):** setup 05:09 · benchmark 02:24 · whole run 08:58
+- **Source:** run 130_20261114_115511
 - **Command:** `bash run_benchmark.sh --smoke --dtype bfloat16 --input-len 64 --output-len 16 --model-name mistralai/Mistral-7B-v0.3 --num-prompts 2 --max-running-requests 1 --max-total-tokens 1024 --seed 42`
 
 | # | Metric | Result |
 |---|---|---|
-| 1 | E2E latency p50, ms (end_to_end_latency_ms) | 304.7463290004089 |
-| 2 | Time To First Token p50, ms (ttft_ms) | 40.436539499751234 |
-| 3 | Output token generation rate (decode) p50, tokens/s (output_tokens_per_s) | 56.75805547788005 |
+| 1 | E2E latency p50, ms (end_to_end_latency_ms) | 322.20329099982337 |
+| 2 | Time To First Token p50, ms (ttft_ms) | 40.726519000145345 |
+| 3 | Output token generation rate (decode) p50, tokens/s (output_tokens_per_s) | 53.43589296470799 |
 | 4 | RadixAttn hit rate, pct (radixattention_cache_hit_rate_pct) | 26.865671641791046 |
 | 5 | Completed request rate, pct (completed_request_rate_pct) | 100.0 |
 <!-- /profile:smoke -->
